@@ -4,7 +4,7 @@ return { -- Autoformat
 	cmd = { "ConformInfo" },
 	keys = {
 		{
-			"<leader>f",
+			"<leader>cf",
 			function()
 				require("conform").format({ async = true, lsp_format = "fallback" })
 			end,
@@ -32,11 +32,19 @@ return { -- Autoformat
 		end,
 		formatters_by_ft = {
 			lua = { "stylua" },
-			-- Conform can also run multiple formatters sequentially
-			-- python = { "isort", "black" },
-			--
-			-- You can use 'stop_after_first' to run the first available formatter from the list
 			javascript = { "prettierd", "prettier", stop_after_first = true },
+			eruby = { "erb_formatter" },
 		},
+
+		formatters = {
+			erb_formatter = {
+				command = "erb-formatter",
+				args = { "--stdin" },
+				stdin = true,
+				timeout_ms = 5000,
+			},
+		},
+		-- Add debug logging
+		log_level = vim.log.levels.DEBUG,
 	},
 }

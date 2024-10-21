@@ -197,6 +197,27 @@ return {
 						},
 					},
 				},
+
+				taplo = {},
+
+				solargraph = {
+					cmd = { "bundle", "exec", "solargraph", "stdio" },
+					root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
+					settings = {
+						solargraph = {
+							diagnostics = true,
+							completion = true,
+							flags = { "--log-file=/tmp/solargraph_log.txt" }, -- Optional: for debugging
+						},
+					},
+					timeout = 30000,
+				},
+
+				rubocop = {
+					-- See: https://docs.rubocop.org/rubocop/usage/lsp.html
+					cmd = { "bundle", "exec", "rubocop", "--lsp" },
+					root_dir = require("lspconfig").util.root_pattern("Gemfile", ".git", "."),
+				},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -212,6 +233,11 @@ return {
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"taplo", -- Used to format toml files
+				"prettier", -- Used to format JavaScript, TypeScript, etc.
+				"eslint", -- Used to lint JavaScript, TypeScript, etc.
+				"erb-formatter", -- Used to format Ruby ERB files
+				"svelte-language-server", -- Used for Svelte
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 

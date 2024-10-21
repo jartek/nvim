@@ -48,7 +48,10 @@ require("lazy").setup({
 	require("plugins.refactoring"),
 	require("plugins.satellite"),
 	require("plugins.comment"),
+	require("plugins.typescript-tools"),
 	require("plugins.ufo"),
+	require("plugins.endwise"),
+	require("plugins.neotest"),
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the

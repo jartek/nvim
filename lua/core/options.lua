@@ -91,3 +91,8 @@ vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decr
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 
+-- For Lua (init.lua)
+vim.opt.clipboard:remove("unnamedplus")
+vim.keymap.set("n", "x", '"_x')
+vim.keymap.set({ "n", "v" }, "d", '"_d')
+vim.keymap.set("n", "D", '"_D')
