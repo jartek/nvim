@@ -62,6 +62,11 @@ return {
 			highlight_groups = {
 				-- Comment = { fg = "foam" },
 				-- VertSplit = { fg = "muted", bg = "muted" },
+				Cursor = { fg = "base", bg = "rose" }, -- Normal mode cursor
+				iCursor = { fg = "base", bg = "love" }, -- Insert mode cursor
+				vCursor = { fg = "base", bg = "iris" }, -- Visual mode cursor
+				CursorLine = { bg = "overlay" }, -- Current line highlight
+				CursorColumn = { bg = "overlay" },
 			},
 
 			before_highlight = function(group, highlight, palette)
@@ -78,5 +83,9 @@ return {
 		})
 
 		vim.cmd("colorscheme rose-pine-moon")
+
+		vim.opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-iCursor/lCursor,r-cr:hor20,o:hor50"
+		vim.opt.cursorline = true -- Highlight the current line
+		vim.opt.cursorlineopt = "both" -- Highlight both the line and line number
 	end,
 }
