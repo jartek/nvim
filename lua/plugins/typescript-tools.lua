@@ -25,7 +25,31 @@ return {
 				tsserver_max_memory = "auto",
 				-- described below
 				tsserver_format_options = {},
-				tsserver_file_preferences = {},
+				tsserver_file_preferences = {
+					-- Use non-relative paths for imports (e.g. @/components instead of ../components)
+					importModuleSpecifierPreference = "non-relative",
+
+					-- Suggest completions for imports when typing
+					includeCompletionsForImportStatements = true,
+
+					-- Include snippet completions for methods/properties
+					includeCompletionsWithSnippetText = true,
+
+					-- Auto-import suggestions from node_modules
+					includeCompletionsForModuleExports = true,
+
+					-- Show parameter name hints inline
+					includeInlayParameterNameHints = "all",
+
+					-- Show type hints for variables
+					includeInlayVariableTypeHints = true,
+
+					-- Show return type hints for functions
+					includeInlayFunctionLikeReturnTypeHints = true,
+
+					-- Use single quotes for imports
+					quotePreference = "single",
+				},
 				-- locale of all tsserver messages, supported locales you can find here:
 				-- https://github.com/microsoft/TypeScript/blob/3c221fc086be52b19801f6e8d82596d04607ede6/src/compiler/utilitiesPublic.ts#L620
 				tsserver_locale = "en",
@@ -48,5 +72,8 @@ return {
 				},
 			},
 		})
+
+		vim.keymap.set("n", "<leader>tu", ":TSToolsOrganizeImports<CR>", { desc = "Organize Imports" })
+		vim.keymap.set("n", "<leader>ti", ":TSToolsAddMissingImports <cr>", { desc = "Add all missing imports" })
 	end,
 }

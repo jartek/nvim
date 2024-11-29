@@ -14,7 +14,26 @@ return { -- Collection of various small independent plugins/modules
 		-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 		-- - sd'   - [S]urround [D]elete [']quotes
 		-- - sr)'  - [S]urround [R]eplace [)] [']
-		require("mini.surround").setup()
+		require("mini.surround").setup({
+			-- Use leader as prefix for all mappings
+			mappings = {
+				add = "<leader>sa", -- Add surrounding
+				delete = "<leader>sd", -- Delete surrounding
+				find = "<leader>sfr", -- Find right surrounding
+				find_left = "<leader>sfl", -- Find left surrounding
+				highlight = "<leader>sh", -- Highlight surrounding
+				replace = "<leader>sr", -- Replace surrounding
+				update_n_lines = "<leader>sn", -- Update `n_lines`
+
+				-- Suffix versions
+				add_line = "<leader>sa_",
+				delete_line = "<leader>sd_",
+				find_line = "<leader>sfr_",
+				find_left_line = "<leader>sfl_",
+				highlight_line = "<leader>sh_",
+				replace_line = "<leader>sr_",
+			},
+		})
 
 		-- Simple and easy statusline.
 		--  You could remove this setup call if you don't like it,
