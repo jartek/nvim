@@ -234,7 +234,7 @@ return {
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 				"taplo", -- Used to format toml files
-				"prettier", -- Used to format JavaScript, TypeScript, etc.
+				"biome", -- Used to format JavaScript, TypeScript, etc.
 				"eslint", -- Used to lint JavaScript, TypeScript, etc.
 				"erb-formatter", -- Used to format Ruby ERB files
 				"svelte-language-server", -- Used for Svelte
