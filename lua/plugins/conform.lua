@@ -35,6 +35,9 @@ return { -- Autoformat
 			javascript = { "biome", stop_after_first = true },
 			json = { "biome", stop_after_first = true },
 			eruby = { "erb_formatter" },
+			tf = { "tfmt" },
+			terraform = { "tfmt" },
+			hcl = { "tfmt" },
 		},
 
 		formatters = {
@@ -43,6 +46,12 @@ return { -- Autoformat
 				args = { "--stdin" },
 				stdin = true,
 				timeout_ms = 5000,
+			},
+			tfmt = {
+				-- Specify the command and its arguments for formatting
+				command = "tofu",
+				args = { "fmt", "-" },
+				stdin = true,
 			},
 		},
 		-- Add debug logging

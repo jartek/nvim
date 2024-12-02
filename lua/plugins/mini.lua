@@ -19,8 +19,6 @@ return { -- Collection of various small independent plugins/modules
 			mappings = {
 				add = "<leader>sa", -- Add surrounding
 				delete = "<leader>sd", -- Delete surrounding
-				find = "<leader>sfr", -- Find right surrounding
-				find_left = "<leader>sfl", -- Find left surrounding
 				highlight = "<leader>sh", -- Highlight surrounding
 				replace = "<leader>sr", -- Replace surrounding
 				update_n_lines = "<leader>sn", -- Update `n_lines`
@@ -28,8 +26,6 @@ return { -- Collection of various small independent plugins/modules
 				-- Suffix versions
 				add_line = "<leader>sa_",
 				delete_line = "<leader>sd_",
-				find_line = "<leader>sfr_",
-				find_left_line = "<leader>sfl_",
 				highlight_line = "<leader>sh_",
 				replace_line = "<leader>sr_",
 			},

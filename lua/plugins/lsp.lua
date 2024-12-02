@@ -238,6 +238,8 @@ return {
 				"eslint", -- Used to lint JavaScript, TypeScript, etc.
 				"erb-formatter", -- Used to format Ruby ERB files
 				"svelte-language-server", -- Used for Svelte
+				"terraform-ls", -- Used for Terraform
+				"tflint", -- Used to lint Terraform
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
