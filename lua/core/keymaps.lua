@@ -10,4 +10,5 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 
 vim.keymap.set("n", "x", '"_x')
 vim.keymap.set({ "n", "v" }, "d", '"_d')
+vim.keymap.set({ "n", "v" }, "c", '"_c')
 vim.keymap.set("n", "D", '"_D')

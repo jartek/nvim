@@ -1,5 +1,6 @@
 require("core.options") -- Load general options
 require("core.keymaps") -- Load general keymaps
+require("core.auto-commands") -- Load auto commands
 require("core.snippets") -- Custom code snippets
 
 -- Set up the Lazy plugin manager
@@ -52,6 +53,7 @@ require("lazy").setup({
 	require("plugins.ufo"),
 	require("plugins.endwise"),
 	require("plugins.neotest"),
+	require("plugins.varnish"),
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
