@@ -183,6 +183,10 @@ return {
 				-- tsserver = {},
 				--
 
+				jsonls = {},
+
+				yamlls = {},
+
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},
@@ -252,6 +256,11 @@ return {
 						-- certain features of an LSP (for example, turning off formatting for tsserver)
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
+
+						vim.diagnostic.config({
+							virtual_text = false, -- Only disable virtual text
+							-- Leave other settings at their defaults
+						})
 					end,
 				},
 			})

@@ -54,6 +54,8 @@ require("lazy").setup({
 	require("plugins.endwise"),
 	require("plugins.neotest"),
 	require("plugins.varnish"),
+	require("plugins.diagnostics"),
+	require("plugins.schema-store"),
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the

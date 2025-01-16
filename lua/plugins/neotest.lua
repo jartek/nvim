@@ -27,6 +27,8 @@ return {
 							})
 						end,
 
+						formatter = "json",
+
 						transform_spec_path = function(path)
 							local prefix = require("neotest-rspec").root(path)
 							return string.sub(path, string.len(prefix) + 2, -1)
@@ -53,11 +55,11 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "<C-l>", function()
+			vim.keymap.set("n", "<leader>tl", function()
 				neotest.run.run()
 			end, { desc = "Run nearest test" })
 
-			vim.keymap.set("n", "<C-t>", function()
+			vim.keymap.set("n", "<leader>tf", function()
 				neotest.run.run(vim.fn.expand("%"))
 			end, { desc = "Run current file" })
 

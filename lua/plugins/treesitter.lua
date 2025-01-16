@@ -44,6 +44,15 @@ return {
 				additional_vim_regex_highlighting = { "ruby" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "gnn",
+					node_incremental = "grn",
+					scope_incremental = "grc",
+					node_decremental = "grm",
+				},
+			},
 		},
 		-- There are additional nvim-treesitter modules that you can use to interact
 		-- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -91,6 +100,10 @@ return {
 							["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
 							-- You can also use captures from other query groups like `locals.scm`
 							["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+							["ab"] = "@block.outer", -- Select outer part of a block (including do/end)
+							["ib"] = "@block.inner", -- Select inner part of a block
+							["a="] = "@assignment.outer", -- select around value
+							["i="] = "@assignment.inner", -- select inside value
 						},
 						-- You can choose the select mode (default is charwise 'v')
 						--
@@ -132,6 +145,7 @@ return {
 						goto_next_start = {
 							["]m"] = "@function.outer",
 							["]]"] = { query = "@class.outer", desc = "Next class start" },
+							["]b"] = "@block.outer",
 							--
 							-- You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queries.
 							["]o"] = "@loop.*",
@@ -149,6 +163,7 @@ return {
 						goto_previous_start = {
 							["[m"] = "@function.outer",
 							["[["] = "@class.outer",
+							["[b"] = "@block.outer",
 						},
 						goto_previous_end = {
 							["[M"] = "@function.outer",

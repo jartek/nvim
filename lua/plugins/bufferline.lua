@@ -58,8 +58,8 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>w", ":Bdelete<CR>", { noremap = true, silent = true })
-		vim.keymap.set("n", "]b", ":bnext<CR>", { noremap = true, silent = true })
-		vim.keymap.set("n", "[b", ":bprevious<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>]", ":bnext<CR>", { noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>[", ":bprevious<CR>", { noremap = true, silent = true })
 		vim.keymap.set("n", "<leader>bb", ":b#<CR>", { noremap = true, silent = true })
 		vim.keymap.set("n", "<leader>bl", ":buffers<CR>", { noremap = true, silent = true })
 	end,
