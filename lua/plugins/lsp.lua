@@ -211,9 +211,11 @@ return {
 						solargraph = {
 							diagnostics = true,
 							completion = true,
+							useBundler = true,
 							flags = { "--log-file=/tmp/solargraph_log.txt" }, -- Optional: for debugging
 						},
 					},
+					debounce_text_changes = 150,
 					timeout = 30000,
 				},
 

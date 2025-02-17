@@ -1,4 +1,18 @@
 return {
+	{
+		"danielfalk/smart-open.nvim",
+		branch = "0.2.x",
+		config = function()
+			require("telescope").load_extension("smart_open")
+		end,
+		dependencies = {
+			"kkharji/sqlite.lua",
+			-- Only required if using match_algorithm fzf
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			-- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+			{ "nvim-telescope/telescope-fzy-native.nvim" },
+		},
+	},
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
@@ -71,6 +85,11 @@ return {
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 			vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 			vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
+			vim.keymap.set("n", "<leader>rf", function()
+				require("telescope").extensions.smart_open.smart_open({
+					filename_first = false,
+				})
+			end, { noremap = true, silent = true, desc = "[R]ecent [F]iles" })
 			vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 			vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 			vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
